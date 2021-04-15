@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25/03/2021 09:05:32 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.RolUsuario" table="rol_usuario" catalog="tiendas_artesanales_db" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="rol" class="model.Rol" fetch="select">
+            <column name="rol_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="usuario" class="model.Usuario" fetch="select">
+            <column name="usuario_id" not-null="true" />
+        </many-to-one>
+        <set name="estadoAprobacionRolUsuarios" table="estado_aprobacion_rol_usuario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="rol_usuario_id" not-null="true" />
+            </key>
+            <one-to-many class="model.EstadoAprobacionRolUsuario" />
+        </set>
+    </class>
+</hibernate-mapping>

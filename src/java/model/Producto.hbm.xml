@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25/03/2021 09:05:32 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Producto" table="producto" catalog="tiendas_artesanales_db" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="tienda" class="model.Tienda" fetch="select">
+            <column name="tienda_id" not-null="true" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="40" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="256" />
+        </property>
+        <property name="categoria" type="string">
+            <column name="categoria" length="40" />
+        </property>
+        <property name="cantidad" type="java.lang.Integer">
+            <column name="cantidad" />
+        </property>
+        <property name="precio" type="java.lang.Integer">
+            <column name="precio" precision="8" scale="0" />
+        </property>
+        <set name="fotoProductos" table="foto_producto" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="producto_id" not-null="true" />
+            </key>
+            <one-to-many class="model.FotoProducto" />
+        </set>
+    </class>
+</hibernate-mapping>

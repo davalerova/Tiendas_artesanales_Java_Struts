@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 25/03/2021 09:05:32 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="model.Usuario" table="usuario" catalog="tiendas_artesanales_db" optimistic-lock="version">
+        <id name="id" type="int">
+            <column name="id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="ciudad" class="model.Ciudad" fetch="select">
+            <column name="ciudad_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tipoDocumentoIdentidad" class="model.TipoDocumentoIdentidad" fetch="select">
+            <column name="tipo_documento_identidad_id" not-null="true" />
+        </many-to-one>
+        <property name="nombres" type="string">
+            <column name="nombres" length="40" not-null="true" />
+        </property>
+        <property name="apellidos" type="string">
+            <column name="apellidos" length="40" not-null="true" />
+        </property>
+        <property name="numeroDocumentoIdentidad" type="string">
+            <column name="numero_documento_identidad" length="20" not-null="true" />
+        </property>
+        <property name="telefono" type="string">
+            <column name="telefono" length="20" />
+        </property>
+        <property name="celular" type="string">
+            <column name="celular" length="30" not-null="true" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="50" not-null="true" />
+        </property>
+        <property name="nickname" type="string">
+            <column name="nickname" length="20" not-null="true" />
+        </property>
+        <property name="contrasena" type="string">
+            <column name="contrasena" length="20" not-null="true" />
+        </property>
+        <property name="direccion" type="string">
+            <column name="direccion" length="50" />
+        </property>
+        <property name="detalleDireccion" type="string">
+            <column name="detalle_direccion" length="40" />
+        </property>
+        <property name="ubicacionGps" type="string">
+            <column name="ubicacion_gps" length="60" />
+        </property>
+        <property name="copiaRut" type="string">
+            <column name="copia_rut" length="256" />
+        </property>
+        <property name="copiaDocumentoIdentidad" type="string">
+            <column name="copia_documento_identidad" length="256" />
+        </property>
+        <property name="usuarioEstaActivo" type="java.lang.Byte">
+            <column name="usuario_esta_activo" />
+        </property>
+        <set name="tiendas" table="tienda" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="usuario_id" not-null="true" />
+            </key>
+            <one-to-many class="model.Tienda" />
+        </set>
+        <set name="rolUsuarios" table="rol_usuario" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="usuario_id" not-null="true" />
+            </key>
+            <one-to-many class="model.RolUsuario" />
+        </set>
+    </class>
+</hibernate-mapping>
