@@ -126,6 +126,7 @@
     <s:include value="/templates/header.jsp"/>
     <body>
     <s:include value="/templates/navMenu.jsp"/>
+    
     <div class="login">
         <img src="img/icono.png">
         <input type="text" placeholder="Usuario" required="required" />

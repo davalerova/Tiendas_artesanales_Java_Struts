@@ -43,6 +43,19 @@ public class UsuarioService {
         return usuario;
     }
 
+    public Usuario findByNickname(String nickname) {
+        Usuario usr = new Usuario();
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session ss = sf.openSession();
+        Transaction tst = ss.beginTransaction();
+        Query query = ss.createQuery("FROM Usuario U WHERE U.nickname = :nickname");
+        query.setParameter("nickname", nickname);
+        usr = (Usuario) query.uniqueResult();
+        tst.commit();
+        ss.close();
+        return usr;
+    }
+
     //insert
     public void insert(Usuario usuario) {
         SessionFactory sf = HibernateUtil.getSessionFactory();

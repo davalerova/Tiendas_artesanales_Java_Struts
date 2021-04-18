@@ -22,7 +22,7 @@
                     <label>
                         Id:
                     </label>  
-                                    </div>
+                </div>
                 <div class="col-sm-10">
                     <s:property value="ciudad.id"/>
                 </div>
@@ -34,8 +34,8 @@
                 <div class="col-sm-10">
                     <s:property value="ciudad.descripcion"/>
                 </div> 
-                
-                 <div class="col-sm-2">
+
+                <div class="col-sm-2">
                     <label>
                         Departamento
                     </label> 

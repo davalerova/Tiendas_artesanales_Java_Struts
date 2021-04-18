@@ -11,7 +11,7 @@
 <html>
     <s:include value="/templates/header.jsp"/>
     <body> 
-                <s:include value="/templates/navMenu.jsp"/>
+        <s:include value="/templates/navMenu.jsp"/>
         <s:form action="ciudadSave">
             <br>
             <div>                
@@ -45,8 +45,8 @@
                            name="ciudad.descripcion"
                            required="true">
                     <br>                    
-                    
-                    
+
+
                 </div>                
                 <s:submit value="Guardar" cssClass="btn btn-success"/>                 
                 <!--Fin código -->

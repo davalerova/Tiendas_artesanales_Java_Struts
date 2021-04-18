@@ -5,10 +5,14 @@
  */
 package controller;
 
+import static com.opensymphony.xwork2.Action.INPUT;
+import static com.opensymphony.xwork2.Action.SUCCESS;
+import com.opensymphony.xwork2.ActionSupport;
 import java.util.ArrayList;
 import java.util.List;
 import model.Usuario;
 import services.UsuarioService;
+
 
 /**
  *
@@ -16,7 +20,10 @@ import services.UsuarioService;
  */
 
 
-public class UsuarioController {
+public class UsuarioController extends ActionSupport{
+
+    String nickname;
+    String password;
     
     List<Usuario> listaUsuarios = new ArrayList<>();
     UsuarioService usuarioService = new UsuarioService();
@@ -26,6 +33,12 @@ public class UsuarioController {
     public void devolverTodos() {
         listaUsuarios.clear();
         listaUsuarios = usuarioService.findAll();
+    }
+    
+    @Override
+    public String execute() throws Exception {
+        System.out.println("Pruebaaaaa");
+        return SUCCESS;
     }
     
     public void encontrarPorId() {
@@ -44,5 +57,30 @@ public class UsuarioController {
     public void eliminar() {
         usuarioService.delete(usuario);
         usuario = new Usuario();
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+    
+    
+    
+    public String validarUsuario() {
+        this.usuario = this.usuarioService.findByNickname(this.nickname);
+        if (this.usuario == null || this.usuario.getNickname() == null) {
+            addFieldError("id", "El usuario con nickname " + this.nickname + " no se encuentra registrado en el sistema");
+            return INPUT;
+        } if(usuario.getNickname() == this.nickname && usuario.getContrasena() == this.password){
+            return SUCCESS;
+        }else {
+            addFieldError("contrasena", "Usuario o contraseña incorrectos");
+            addFieldError("nickname", "Usuario o contraseña incorrectos");
+            return INPUT;
+
+        }
     }
 }

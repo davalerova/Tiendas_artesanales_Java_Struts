@@ -7,15 +7,24 @@
     <package name="default" extends="struts-default">        
     </package>
     <package name="controller" namespace="/" extends="struts-default">
-        <action name="ciudadInit" class="controller.CiudadController" method="execute">
+        <action name="ciudadInit" 
+                class="controller.CiudadController" 
+                method="execute">
             <result name="success">
                 /view/ciudad/ciudadFind.jsp
             </result>            
         </action>
+        <action name="login" 
+                class="controller.UsuarioController" 
+                method="execute">
+            <result name="success">
+                /view/ciudad/ciudadDetail.jsp
+            </result>            
+        </action>
         <action 
-name="ciudadFind" 
-class="controller.CiudadController" 
-method="findCiudadById">
+            name="ciudadFind" 
+            class="controller.CiudadController" 
+            method="findCiudadById">
             <result name="success">
                 /view/ciudad/ciudadDetail.jsp
             </result>
@@ -23,20 +32,27 @@ method="findCiudadById">
                 /view/ciudad/ciudadFind.jsp
             </result>            
         </action>
-        <action name="returnper" class="controller.CiudadController" method="back">
+        
+        <action name="returnper" 
+                class="controller.CiudadController" 
+                method="back">
             <result name="success">
                 /view/ciudad/ciudadFind.jsp
             </result>            
         </action> 
-        <action name="ciudadAdd" class="controller.CiudadController" method="add">
+        <action name="ciudadAdd" 
+                class="controller.CiudadController" 
+                method="add">
             <result name="success">
                 /view/ciudad/ciudadAdd.jsp
             </result>            
         </action>
-        <action name="ciudadSave" class="controller.CiudadController" method="save">
+        <action name="ciudadSave" 
+                class="controller.CiudadController" 
+                method="save">
             <result name="success">
                 /view/ciudad/ciudadDetail.jsp 
-                            </result>            
-        </action>     
+            </result>            
+        </action>       
     </package>
 </struts> 
