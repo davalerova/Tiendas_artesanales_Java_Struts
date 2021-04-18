@@ -30,10 +30,10 @@
                         Id
                     </label>
                     <br>
-                    <input type="text" 
+                    <input type="number" 
                            class="form-control" 
                            id="id"                           
-                           name="ciudad.id"
+                           name="id"
                            required="true">
                 </div>                
                 <s:fielderror cssClass="alert alert-danger" 

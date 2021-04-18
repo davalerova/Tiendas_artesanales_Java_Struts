@@ -20,7 +20,7 @@ public class CiudadController extends ActionSupport {
     List<Ciudad> listaCiudades = new ArrayList<>();
     private CiudadService ciudadService = new CiudadService();
     private Ciudad ciudad = new Ciudad();
-    int id;
+    String id;
 
     @Override
     public String execute() throws Exception {
@@ -30,9 +30,9 @@ public class CiudadController extends ActionSupport {
     }
 
     public String findCiudadById() {
-        this.ciudad = this.ciudadService.findById(this.id);
+        this.ciudad = this.ciudadService.findById(Integer.parseInt(this.id));
         if (this.ciudad == null || String.valueOf(this.ciudad.getId()) == null) {
-            addFieldError("id", "La ciudad con número de id " + id + " no se encuentra registrada en el sistema");
+            addFieldError("id", "La ciudad con número de id " + this.id + " no se encuentra registrada en el sistema");
             return INPUT;
         } else {
             return SUCCESS;
@@ -47,7 +47,7 @@ public class CiudadController extends ActionSupport {
 
     public void encontrarPorId() {
         ciudad = new Ciudad();
-        ciudad = ciudadService.findById(id);
+        ciudad = ciudadService.findById(Integer.parseInt(id));
     }
 
     public String insertar() {
@@ -88,6 +88,12 @@ public class CiudadController extends ActionSupport {
     }
 
     public String getId() {
-        return String.valueOf(id);
+        return id;
     }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    
 }

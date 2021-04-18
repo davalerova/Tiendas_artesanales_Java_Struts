@@ -33,7 +33,16 @@
                 </div>
                 <div class="col-sm-10">
                     <s:property value="ciudad.descripcion"/>
-                </div>             
+                </div> 
+                
+                 <div class="col-sm-2">
+                    <label>
+                        Departamento
+                    </label> 
+                </div>
+                <div class="col-sm-10">
+                    <s:property value="ciudad.departamento.descripcion"/>
+                </div>   
             </div>
             <div>
                 <s:a action="returnper" cssClass="btn btn-success">
