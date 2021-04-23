@@ -53,6 +53,74 @@
             <result name="success">
                 /view/ciudad/ciudadDetail.jsp 
             </result>            
-        </action>       
+        </action>      
+        
+          
+        <!-- Departamento-->
+        <action name="departamentoInit" 
+                class="controller.DepartamentoController" 
+                method="execute">
+            <result name="success">
+                /view/departamento/departamentoFind.jsp
+            </result>            
+        </action>
+        <action name="login" 
+                class="controller.UsuarioController" 
+                method="execute">
+            <result name="success">
+                /view/departamento/departamentoDetail.jsp
+            </result>            
+        </action>
+        <action 
+            name="departamentoFind" 
+            class="controller.DepartamentoController" 
+            method="findDepartamentoById">
+            <result name="success">
+                /view/departamento/departamentoDetail.jsp
+            </result>
+            <result name="input">
+                /view/departamento/departamentoFind.jsp
+            </result>            
+        </action>
+        <action 
+            name="login" 
+            class="controller.UsuarioController" 
+            method="validarUsuario">
+            <result name="success">
+                /view/departamento/departamentoDetail.jsp
+            </result>
+            <result name="input">
+                /view/departamento/departamentoFind.jsp
+            </result>            
+        </action>
+        
+        <action name="returnDepartamento" 
+                class="controller.DepartamentoController" 
+                method="back">
+            <result name="success">
+                /view/departamento/departamentoFind.jsp
+            </result>            
+        </action> 
+        <action name="departamentoAdd" 
+                class="controller.DepartamentoController" 
+                method="insertarDepartamento">
+            <result name="success">
+                /view/departamento/departamentoAdd.jsp
+            </result>            
+        </action>
+        <action name="departamentoSave" 
+                class="controller.DepartamentoController" 
+                method="save">
+            <result name="success">
+                /view/departamento/departamentoDetail.jsp 
+            </result>            
+        </action>
+        <action name="devolverTodos" 
+                class="controller.DepartamentoController" 
+                method="devolverTodos">
+            <result name="success">
+                /view/departamento/departamentoDetail.jsp 
+            </result>            
+        </action>  
     </package>
 </struts> 

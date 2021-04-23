@@ -9,7 +9,9 @@ import com.opensymphony.xwork2.ActionSupport;
 import java.util.ArrayList;
 import java.util.List;
 import model.Ciudad;
+import model.Departamento;
 import services.CiudadService;
+import services.DepartamentoService;
 
 /**
  *
@@ -18,9 +20,13 @@ import services.CiudadService;
 public class CiudadController extends ActionSupport {
 
     List<Ciudad> listaCiudades = new ArrayList<>();
+    List<Departamento> listaDepartamentos = new ArrayList<>();
+    List<String> listaDepartamentosString = new ArrayList<>();
     private CiudadService ciudadService = new CiudadService();
+    private DepartamentoService departamentoService = new DepartamentoService();
     private Ciudad ciudad = new Ciudad();
     String id;
+    private String departamento;
 
     @Override
     public String execute() throws Exception {
@@ -61,6 +67,7 @@ public class CiudadController extends ActionSupport {
     }
     
     public String save(){
+        ciudad.setDepartamento(departamentoService.findByDescripcion(departamento));
         ciudadService.insert(ciudad);
         return SUCCESS;
     }
@@ -76,6 +83,10 @@ public class CiudadController extends ActionSupport {
 
     public String add() {
         ciudad = new Ciudad();
+        listaDepartamentos = departamentoService.findAll();
+        for(Departamento departamento: listaDepartamentos){
+            listaDepartamentosString.add(departamento.getDescripcion());
+        }
         return SUCCESS;
     }
 
@@ -93,6 +104,30 @@ public class CiudadController extends ActionSupport {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public List<Departamento> getListaDepartamentos() {
+        return listaDepartamentos;
+    }
+
+    public void setListaDepartamentos(List<Departamento> listaDepartamentos) {
+        this.listaDepartamentos = listaDepartamentos;
+    }
+
+    public String getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
+    }
+
+    public List<String> getListaDepartamentosString() {
+        return listaDepartamentosString;
+    }
+
+    public void setListaDepartamentosString(List<String> listaDepartamentosString) {
+        this.listaDepartamentosString = listaDepartamentosString;
     }
 
     

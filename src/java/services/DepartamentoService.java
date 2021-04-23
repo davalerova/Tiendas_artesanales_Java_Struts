@@ -43,6 +43,18 @@ public class DepartamentoService {
         tst.commit();
         return departamento;
     }
+    
+    public Departamento findByDescripcion(String desc) {
+        Departamento departamento = new Departamento();
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session ss = sf.openSession();
+        Transaction tst = ss.beginTransaction();
+        Query query = ss.createQuery("from Departamento where descripcion =:desc");
+        query.setParameter("desc", desc);
+        departamento = (Departamento) query.uniqueResult();
+        tst.commit();
+        return departamento;
+    }
 
     //insert
     public void insert(Departamento departamento) {

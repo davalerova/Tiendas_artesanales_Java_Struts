@@ -17,9 +17,9 @@
             <ul class="navbar-nav"><li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" style="font-family: fantasy" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">ADMINISTRACIÓN</a>
                     <div class="dropdown-menu" style="font-family: fantasy" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">Ciudad</a>
+                        <a class="dropdown-item" href="/TiendasArtesanales/ciudadInit">Ciudad</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Usuarios</a>
+                        <a class="dropdown-item" href="/TiendasArtesanales/departamentoInit">Departamento</a>
                         <div class="dropdown-divider"></div>                            
                         <a class="dropdown-item" href="#">Otros</a>
                     </div>

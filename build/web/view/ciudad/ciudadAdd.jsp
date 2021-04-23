@@ -34,7 +34,8 @@
                            class="form-control" 
                            id="id"                           
                            name="ciudad.id"
-                           required="true">
+                           required="true"
+                           disabled>
                     <br>
                     <label for="descripcion">
                         Nombre ciudad
@@ -44,7 +45,13 @@
                            id="descripcion"                           
                            name="ciudad.descripcion"
                            required="true">
-                    <br>                    
+                    <br>       
+                    <label for="departamento">
+                        Departamento
+                    </label>
+
+                    <s:select headerKey="-1" list="listaDepartamentosString" value="Seleccione una Opcion" name="departamento">
+                    </s:select>
 
 
                 </div>                

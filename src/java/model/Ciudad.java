@@ -14,7 +14,6 @@ public class Ciudad  implements java.io.Serializable {
      private int id;
      private Departamento departamento;
      private String descripcion;
-     private Integer estado;
      private Set usuarios = new HashSet(0);
 
     public Ciudad() {
@@ -25,11 +24,10 @@ public class Ciudad  implements java.io.Serializable {
         this.id = id;
         this.departamento = departamento;
     }
-    public Ciudad(int id, Departamento departamento, String descripcion, Integer estado, Set usuarios) {
+    public Ciudad(int id, Departamento departamento, String descripcion, Set usuarios) {
        this.id = id;
        this.departamento = departamento;
        this.descripcion = descripcion;
-       this.estado = estado;
        this.usuarios = usuarios;
     }
    
@@ -53,13 +51,6 @@ public class Ciudad  implements java.io.Serializable {
     
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
-    }
-    public Integer getEstado() {
-        return this.estado;
-    }
-    
-    public void setEstado(Integer estado) {
-        this.estado = estado;
     }
     public Set getUsuarios() {
         return this.usuarios;
