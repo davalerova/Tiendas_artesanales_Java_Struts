@@ -123,43 +123,43 @@
             </result>            
         </action>  
          <!-- Tipo de documento de identidad-->
-        <action name="tipoDocumentoIdentidadInit" 
-                class="controller.TipoDocumentoIdentidadController" 
+        <action name="rolInit" 
+                class="controller.RolController" 
                 method="execute">
             <result name="success">
-                /view/tipo_documento_identidad/tipoDocumentoIdentidadFind.jsp
+                /view/rol/rolFind.jsp
             </result>            
         </action>
-        <action name="tipoDocumentoIdentidadAdd" 
-                class="controller.TipoDocumentoIdentidadController" 
-                method="insertarTipoDocumentoIdentidad">
+        <action name="rolAdd" 
+                class="controller.RolController" 
+                method="insertarRol">
             <result name="success">
-                /view/tipo_documento_identidad/tipoDocumentoIdentidadAdd.jsp
+                /view/rol/rolAdd.jsp
             </result>            
         </action>
         <action 
-            name="tipoDocumentoIdentidadFind" 
-            class="controller.TipoDocumentoIdentidadController" 
-            method="findTipoDocumentoIdentidadById">
+            name="rolFind" 
+            class="controller.RolController" 
+            method="findRolById">
             <result name="success">
-                /view/tipo_documento_identidad/tipoDocumentoIdentidadDetail.jsp
+                /view/rol/rolDetail.jsp
             </result>
             <result name="input">
-                /view/tipo_documento_identidad/tipoDocumentoIdentidadFind.jsp
+                /view/rol/rolFind.jsp
             </result>            
         </action>
-        <action name="tipoDocumentoIdentidadSave" 
-                class="controller.TipoDocumentoIdentidadController" 
+        <action name="rolSave" 
+                class="controller.RolController" 
                 method="save">
             <result name="success">
-                /view/tipo_documento_identidad/tipoDocumentoIdentidadDetail.jsp 
+                /view/rol/rolDetail.jsp 
             </result>            
         </action>
-        <action name="returnTipoDocumentoIdentidad" 
-                class="controller.TipoDocumentoIdentidadController" 
+        <action name="returnRol" 
+                class="controller.RolController" 
                 method="back">
             <result name="success">
-                /view/tipo_documento_identidad/tipoDocumentoIdentidadFind.jsp
+                /view/rol/rolFind.jsp
             </result>            
         </action> 
         
