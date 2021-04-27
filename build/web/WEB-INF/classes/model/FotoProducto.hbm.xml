@@ -6,7 +6,7 @@
     <class name="model.FotoProducto" table="foto_producto" catalog="tiendas_artesanales_db" optimistic-lock="version">
         <id name="id" type="int">
             <column name="id" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="producto" class="model.Producto" fetch="select">
             <column name="producto_id" not-null="true" />

@@ -6,7 +6,7 @@
     <class name="model.RolUsuario" table="rol_usuario" catalog="tiendas_artesanales_db" optimistic-lock="version">
         <id name="id" type="int">
             <column name="id" />
-            <generator class="assigned" />
+            <generator class="identity" />
         </id>
         <many-to-one name="rol" class="model.Rol" fetch="select">
             <column name="rol_id" not-null="true" />

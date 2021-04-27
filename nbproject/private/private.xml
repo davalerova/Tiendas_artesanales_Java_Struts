@@ -4,16 +4,19 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/model/Ciudad.java</file>
-            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/struts.xml</file>
             <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/controller/DepartamentoController.java</file>
             <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/services/DepartamentoService.java</file>
             <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/controller/CiudadController.java</file>
             <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/web/view/ciudad/ciudadFind.jsp</file>
             <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/web/view/ciudad/ciudadAdd.jsp</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/model/RolUsuario.hbm.xml</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/model/Ciudad.hbm.xml</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/model/Rol.hbm.xml</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/struts.xml</file>
             <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/web/view/aprobacionArtesano.jsp</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/services/CiudadService.java</file>
             <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/web/view/ciudad/ciudadDetail.jsp</file>
             <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/model/Departamento.java</file>
-            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/model/Ciudad.hbm.xml</file>
         </group>
     </open-files>
 </project-private>
