@@ -20,7 +20,9 @@
                         <a class="dropdown-item" href="/TiendasArtesanales/ciudadInit">Ciudad</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/TiendasArtesanales/departamentoInit">Departamento</a>
-                        <div class="dropdown-divider"></div>                            
+                        <div class="dropdown-divider"></div>   
+                        <a class="dropdown-item" href="/TiendasArtesanales/tipoDocumentoIdentidadInit">Tipo de documento de identidad</a>
+                        <div class="dropdown-divider"></div> 
                         <a class="dropdown-item" href="#">Otros</a>
                     </div>
                 </li>

@@ -56,6 +56,11 @@ public class DepartamentoController extends ActionSupport{
         departamentoService.update(departamento);
     }
     
+    public String save(){
+        departamentoService.insert(departamento);
+        return SUCCESS;
+    }
+    
     public void eliminar() {
         departamentoService.delete(departamento);
         departamento = new Departamento();
