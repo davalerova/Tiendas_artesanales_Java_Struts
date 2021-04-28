@@ -1,5 +1,5 @@
 <%-- 
-    Document   : ciudadAdd
+    Document   : departamentoAdd
     Created on : 12/04/2021, 10:51:05 PM
     Author     : daval
 --%>
@@ -12,10 +12,10 @@
     <s:include value="/templates/header.jsp"/>
     <body> 
         <s:include value="/templates/navMenu.jsp"/>
-        <s:form action="ciudadSave">
+        <s:form action="departamentoSave">
             <br>
             <div>                
-                <s:a action="returnper" cssClass="btn btn-success" >
+                <s:a action="returnDepartamento" cssClass="btn btn-success" >
                     Volver
                 </s:a>                
             </div>
@@ -23,7 +23,7 @@
             <div class="card">
                 <!-- Código propio de la página a crear-->
                 <div class="card-header" style="font-family: fantasy">
-                    Datos de la ciudad                       
+                    Datos del departamento                      
                 </div>
                 <div class="form-group">
                     <label for="id">
@@ -32,32 +32,19 @@
                     <br>
                     <input type="text" 
                            class="form-control" 
-                           id="id"                           
-                           name="ciudad.id"
-                           required="true"
-                           disabled>
+                           id="id"         
+                           disabled
+                           name="departamento.id"
+                           required="true">
                     <br>
                     <label for="descripcion">
-                        Nombre ciudad
+                        Nombre del departamento
                     </label>
                     <input type="text" 
                            class="form-control" 
                            id="descripcion"                           
-                           name="ciudad.descripcion"
+                           name="departamento.descripcion"
                            required="true">
-                    <br>       
-                    <label for="departamento">
-                        Departamento
-                    </label>
-
-                    <s:select 
-                        headerKey="-1" 
-                        list="listaDepartamentosString" 
-                        value="Seleccione una Opcion" 
-                        name="departamento">
-                    </s:select>
-
-
                 </div>                
                 <s:submit value="Guardar" cssClass="btn btn-success"/>                 
                 <!--Fin código -->

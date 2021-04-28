@@ -50,7 +50,11 @@
                         Departamento
                     </label>
 
-                    <s:select headerKey="-1" list="listaDepartamentosString" value="Seleccione una Opcion" name="departamento">
+                    <s:select 
+                        headerKey="-1" 
+                        list="listaDepartamentosString" 
+                        value="Seleccione una Opcion" 
+                        name="departamento">
                     </s:select>
 
 

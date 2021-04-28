@@ -122,7 +122,49 @@
                 /view/departamento/departamentoDetail.jsp 
             </result>            
         </action>  
-         <!-- Tipo de documento de identidad-->
+        
+        <!-- Tipo de documento de identidad-->
+        <action name="tipoDocumentoIdentidadInit" 
+                class="controller.TipoDocumentoIdentidadController" 
+                method="execute">
+            <result name="success">
+                /view/tipo_documento_identidad/tipoDocumentoIdentidadFind.jsp
+            </result>            
+        </action>
+        <action name="tipoDocumentoIdentidadAdd" 
+                class="controller.TipoDocumentoIdentidadController" 
+                method="insertarTipoDocumentoIdentidad">
+            <result name="success">
+                /view/tipo_documento_identidad/tipoDocumentoIdentidadAdd.jsp
+            </result>            
+        </action>
+        <action 
+            name="tipoDocumentoIdentidadFind" 
+            class="controller.TipoDocumentoIdentidadController" 
+            method="findTipoDocumentoIdentidadById">
+            <result name="success">
+                /view/tipo_documento_identidad/tipoDocumentoIdentidadDetail.jsp
+            </result>
+            <result name="input">
+                /view/tipo_documento_identidad/tipoDocumentoIdentidadFind.jsp
+            </result>            
+        </action>
+        <action name="tipoDocumentoIdentidadSave" 
+                class="controller.TipoDocumentoIdentidadController" 
+                method="save">
+            <result name="success">
+                /view/tipo_documento_identidad/tipoDocumentoIdentidadDetail.jsp 
+            </result>            
+        </action>
+        <action name="returnTipoDocumentoIdentidad" 
+                class="controller.TipoDocumentoIdentidadController" 
+                method="back">
+            <result name="success">
+                /view/tipo_documento_identidad/tipoDocumentoIdentidadFind.jsp
+            </result>            
+        </action> 
+        
+         <!-- Rol-->
         <action name="rolInit" 
                 class="controller.RolController" 
                 method="execute">
@@ -163,5 +205,45 @@
             </result>            
         </action> 
         
+        <!-- Usuario cliente-->
+        <action name="usuarioClienteInit" 
+                class="controller.UsuarioController" 
+                method="execute">
+            <result name="success">
+                /view/usuario/cliente/clienteFind.jsp
+            </result>            
+        </action>
+        <action name="usuarioClienteAdd" 
+                class="controller.UsuarioController" 
+                method="insertarUsuarioCliente">
+            <result name="success">
+                /view/usuario/cliente/clienteAdd.jsp
+            </result>            
+        </action>
+        <action 
+            name="usuarioClienteFind" 
+            class="controller.UsuarioController" 
+            method="findUsuarioById">
+            <result name="success">
+                /view/usuario/cliente/clienteDetail.jsp
+            </result>
+            <result name="input">
+                /view/usuario/cliente/clienteFind.jsp
+            </result>            
+        </action>
+        <action name="usuarioClienteSave" 
+                class="controller.UsuarioController" 
+                method="save">
+            <result name="success">
+                /view/usuario/cliente/clienteDetail.jsp 
+            </result>            
+        </action>
+        <action name="returnUsuarioCliente" 
+                class="controller.UsuarioController" 
+                method="back">
+            <result name="success">
+                /view/usuario/cliente/clienteFind.jsp
+            </result>            
+        </action> 
     </package>
 </struts> 

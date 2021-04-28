@@ -5,82 +5,136 @@
  */
 package controller;
 
-import static com.opensymphony.xwork2.Action.INPUT;
-import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.ArrayList;
 import java.util.List;
 import model.Usuario;
+import model.TipoDocumentoIdentidad;
 import services.UsuarioService;
-
+import services.TipoDocumentoIdentidadService;
 
 /**
  *
  * @author daval
  */
+public class UsuarioController extends ActionSupport {
 
-
-public class UsuarioController extends ActionSupport{
-
-    String nickname;
-    String password;
-    
     List<Usuario> listaUsuarios = new ArrayList<>();
-    UsuarioService usuarioService = new UsuarioService();
-    Usuario usuario = new Usuario();
-    int id;
-    
+    List<TipoDocumentoIdentidad> listaTiposDocumentoIdentidad = new ArrayList<>();
+    List<String> listaTiposDocumentoIdentidadString = new ArrayList<>();
+    private UsuarioService usuarioService = new UsuarioService();
+    private TipoDocumentoIdentidadService tipoDocumentoIdentidadService = new TipoDocumentoIdentidadService();
+    private Usuario usuario = new Usuario();
+    String id;
+    private String tipoDocumentoIdentidad;
+
+    @Override
+    public String execute() throws Exception {
+        System.out.println("Pruebaaaaa"+this.id);
+        System.out.println(this.id);
+        return SUCCESS;
+    }
+
+    public String findUsuarioById() {
+        this.usuario = this.usuarioService.findById(Integer.parseInt(this.id));
+        if (this.usuario == null || String.valueOf(this.usuario.getId()) == null) {
+            addFieldError("id", "El usuario con número de id " + this.id + " no se encuentra registrada en el sistema");
+            return INPUT;
+        } else {
+            return SUCCESS;
+
+        }
+    }
+
     public void devolverTodos() {
         listaUsuarios.clear();
         listaUsuarios = usuarioService.findAll();
     }
-    
-    @Override
-    public String execute() throws Exception {
-        System.out.println("Pruebaaaaa");
+
+    public void encontrarPorId() {
+        usuario = new Usuario();
+        usuario = usuarioService.findById(Integer.parseInt(id));
+    }
+
+    public String insertar() {
+        usuarioService.insert(usuario);
+        return SUCCESS;
+    }
+
+    public String actualizar() {
+        usuarioService.update(usuario);
         return SUCCESS;
     }
     
-    public void encontrarPorId() {
-        usuario = new Usuario();
-        usuario = usuarioService.findById(id);
-    }
-    
-    public void insertar() {
+    public String save(){
+        usuario.setTipoDocumentoIdentidad(tipoDocumentoIdentidadService.findByDescripcion(tipoDocumentoIdentidad));
         usuarioService.insert(usuario);
+        return SUCCESS;
     }
-    
-    public void actualizar() {
-        usuarioService.update(usuario);
-    }
-    
+
     public void eliminar() {
         usuarioService.delete(usuario);
         usuario = new Usuario();
     }
 
-    public String getNickname() {
-        return nickname;
+    public String back() {
+        return SUCCESS;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-    
-    
-    
-    public String validarUsuario() {
-        this.usuario = this.usuarioService.findByNickname(this.nickname);
-        if (this.usuario == null || this.usuario.getNickname() == null) {
-            addFieldError("id", "El usuario con nickname " + this.nickname + " no se encuentra registrado en el sistema");
-            return INPUT;
-        } if(usuario.getNickname() == this.nickname && usuario.getContrasena() == this.password){
-            return SUCCESS;
-        }else {
-            addFieldError("contrasena", "Usuario o contraseña incorrectos");
-            addFieldError("nickname", "Usuario o contraseña incorrectos");
-            return INPUT;
-
+    public String add() {
+        usuario = new Usuario();
+        listaTiposDocumentoIdentidad = tipoDocumentoIdentidadService.findAll();
+        for(TipoDocumentoIdentidad tipoDocumento: listaTiposDocumentoIdentidad){
+            listaTiposDocumentoIdentidadString.add(tipoDocumento.getDescripcion());
         }
+        return SUCCESS;
     }
+    
+    public String insertarUsuarioCliente(){
+        return SUCCESS;
+    }
+    
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public List<TipoDocumentoIdentidad> getListaTiposDocumentoIdentidad() {
+        return listaTiposDocumentoIdentidad;
+    }
+
+    public void setListaTiposDocumentoIdentidad(List<TipoDocumentoIdentidad> listaTiposDocumentoIdentidad) {
+        this.listaTiposDocumentoIdentidad = listaTiposDocumentoIdentidad;
+    }
+
+    public List<String> getListaTiposDocumentoIdentidadString() {
+        return listaTiposDocumentoIdentidadString;
+    }
+
+    public void setListaTiposDocumentoIdentidadString(List<String> listaTiposDocumentoIdentidadString) {
+        this.listaTiposDocumentoIdentidadString = listaTiposDocumentoIdentidadString;
+    }
+
+    public List<Usuario> getListaUsuarios() {
+        return listaUsuarios;
+    }
+
+    public void setListaUsuarios(List<Usuario> listaUsuarios) {
+        this.listaUsuarios = listaUsuarios;
+    }
+
+    
+
+    
 }

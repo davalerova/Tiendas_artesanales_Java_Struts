@@ -31,6 +31,18 @@ public class TipoDocumentoIdentidadService {
         tst.commit();
         return tipoDocumentosIdentidad;
     }
+    
+    public TipoDocumentoIdentidad findByDescripcion(String desc) {
+        TipoDocumentoIdentidad tipoDocumentoIdentidad = new TipoDocumentoIdentidad();
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session ss = sf.openSession();
+        Transaction tst = ss.beginTransaction();
+        Query query = ss.createQuery("from TipoDocumentoIdentidad where descripcion =:desc");
+        query.setParameter("desc", desc);
+        tipoDocumentoIdentidad = (TipoDocumentoIdentidad) query.uniqueResult();
+        tst.commit();
+        return tipoDocumentoIdentidad;
+    }
 
     //findById
     public TipoDocumentoIdentidad findById(int id) {

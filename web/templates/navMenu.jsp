@@ -25,6 +25,8 @@
                         <div class="dropdown-divider"></div> 
                         <a class="dropdown-item" href="/TiendasArtesanales/rolInit">Roles</a>
                         <div class="dropdown-divider"></div> 
+                        <a class="dropdown-item" href="/TiendasArtesanales/usuarioClienteInit">Usuario cliente</a>
+                        <div class="dropdown-divider"></div> 
                         <a class="dropdown-item" href="#">Otros</a>
                     </div>
                 </li>
