@@ -1,5 +1,5 @@
 <%-- 
-    Document   : departamentoFind
+    Document   : rolUsuarioFind
     Created on : 12/04/2021, 10:47:53 PM
     Author     : daval
 --%>
@@ -10,10 +10,10 @@
     <s:include value="/templates/header.jsp"/>
     <body>
         <s:include value="/templates/navMenu.jsp"/>        
-        <s:form action="departamentoFind">
+        <s:form action="rolUsuarioFind">
             <br>
             <div>
-                <s:a action="departamentoAdd" 
+                <s:a action="rolUsuarioAdd" 
                      cssClass="btn btn-success">
                     Agregar
                 </s:a> 
@@ -23,14 +23,14 @@
                 <!-- Código propio de la página a crear-->
                 <div class="card-header" 
                      style="font-family: fantasy">
-                    Datos del departamento                
+                    Datos del rol usuario                
                 </div>
                 <div class="form-group">
                     <label for="id">
                         Id
                     </label>
                     <br>
-                    <input type="text" 
+                    <input type="number" 
                            class="form-control" 
                            id="id"                           
                            name="id"

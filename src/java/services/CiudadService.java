@@ -42,6 +42,18 @@ public class CiudadService {
         tst.commit();
         return ciudad;
     }
+    
+    public Ciudad findByDescripcion(String desc) {
+        Ciudad ciudad = new Ciudad();
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session ss = sf.openSession();
+        Transaction tst = ss.beginTransaction();
+        Query query = ss.createQuery("from Ciudad where descripcion =:desc");
+        query.setParameter("desc", desc);
+        ciudad = (Ciudad) query.uniqueResult();
+        tst.commit();
+        return ciudad;
+    }
 
     //insert
     public void insert(Ciudad ciudad) {

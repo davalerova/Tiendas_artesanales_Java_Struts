@@ -202,9 +202,13 @@ public class Usuario  implements java.io.Serializable {
     public void setRolUsuarios(Set rolUsuarios) {
         this.rolUsuarios = rolUsuarios;
     }
+    
+    
+
+    
 
 
-
+    
 
 }
 

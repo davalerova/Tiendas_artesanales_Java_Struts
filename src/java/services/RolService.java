@@ -42,7 +42,17 @@ public class RolService {
         tst.commit();
         return rol;
     }
-
+    public Rol findByDescripcion(String desc) {
+        Rol rol = new Rol();
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session ss = sf.openSession();
+        Transaction tst = ss.beginTransaction();
+        Query query = ss.createQuery("from Rol where descripcion =:desc");
+        query.setParameter("desc", desc);
+        rol = (Rol) query.uniqueResult();
+        tst.commit();
+        return rol;
+    }
     //insert
     public void insert(Rol rol) {
         SessionFactory sf = HibernateUtil.getSessionFactory();

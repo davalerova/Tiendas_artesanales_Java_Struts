@@ -14,7 +14,7 @@
             <body>
                 <s:include value="/templates/navMenu.jsp"></s:include>
 
-                <s:form action="usuarioSave">
+                <s:form action="usuarioClienteSave">
                     <br>
 
                     <div>
@@ -72,28 +72,9 @@
                                 required="true"
                             ></input>
 
-                            <br>
+                            
 
-                            <label for="tipoDocumentoIdentidad">Tipo documento de identidad</label>
-
-                            <s:select
-                                headerKey="-1"
-                                list="listaTiposDocumentoIdentidadString"
-                                value="Seleccione una Opcion"
-                                name="tipoDocumentoIdentidad"
-                            ></s:select>
-
-                            <br>
-
-                            <label for="numeroDocumentoIdentidad">Número documento de identidad</label>
-
-                            <input
-                                type="text"
-                                class="form-control"
-                                id="numeroDocumentoIdentidad"
-                                name="usuario.numeroDocumentoIdentidad"
-                                required="true"
-                            ></input>
+                           
 
                             <br>
 
@@ -124,27 +105,122 @@
                             <label for="email">Correo electrónico</label>
 
                             <input
-                                type="text"
+                                type="email"
                                 class="form-control"
                                 id="email"
                                 name="usuario.email"
                                 required="true"
                             ></input>
+                            
+                            
+                            
+                            <div>
+
+                            
+                            
+
+                            <s:select
+                                headerKey="-1"
+                                list="listaTiposDocumentoIdentidadString"
+                                value="Seleccione una Opcion"
+                                name="tipoDocumentoIdentidad"
+                                label="Tipo de documento de identidad"
+                            ></s:select>
+                            </div>
+                            
+                            
+                            <br>
+                            
+                            <s:select
+                                headerKey="-1"
+                                list="listaCiudadesString"
+                                value="Seleccione una Opcion"
+                                name="ciudad"
+                                label="Ciudad"
+                            ></s:select>
+
+                            <label for="numeroDocumentoIdentidad">Número documento de identidad</label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="numeroDocumentoIdentidad"
+                                name="usuario.numeroDocumentoIdentidad"
+                                required="true"
+                            ></input>
+                            
+                            <br>
+
+                            <label for="email">Dirección</label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="email"
+                                name="usuario.direccion"
+                                required="true"
+                            ></input>
+                            
+                            
+                             <br>
+
+                            <label for="email">Ubicación GPS</label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="email"
+                                name="usuario.ubicacionGps"
+                                required="true"
+                            ></input>
+                            
+                            <br>
+
+                            <label for="email">Detalle dirección</label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="email"
+                                name="usuario.direccion"
+                                required="true"
+                            ></input>
+                            
+                            <label for="email">Nombre de usuario</label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="email"
+                                name="usuario.nickname"
+                                required="true"
+                            ></input>
+                            
+                            <label for="email">Contraseña</label>
+
+                            <input
+                                type="password"
+                                class="form-control"
+                                id="email"
+                                name="usuario.contrasena"
+                                required="true"
+                            ></input>
+                            
+                            
 
                         </div>
 
                         <s:submit
-                            value="Guardar"
+                            value="Registrarse"
                             cssClass="btn btn-success"
                         ></s:submit>
+                        <br>
+                        <h1></h1>
 
-                        <!-- Fin código -->
-                    </div>
-                </s:form>
+                        <!--Fin código -->
+            </div>
+        </s:form>
+        <s:include value="/templates/footer.jsp"/>
+    </body>
+</html>
 
-                <s:include value="/templates/footer.jsp"></s:include>
-            </body>
-            </html>
-        </%@taglib>
-    </%@page>
-</%-->

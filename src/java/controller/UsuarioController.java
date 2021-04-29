@@ -8,8 +8,14 @@ package controller;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.ArrayList;
 import java.util.List;
+import model.Ciudad;
+import model.Rol;
+import model.RolUsuario;
 import model.Usuario;
 import model.TipoDocumentoIdentidad;
+import services.CiudadService;
+import services.RolService;
+import services.RolUsuarioService;
 import services.UsuarioService;
 import services.TipoDocumentoIdentidadService;
 
@@ -22,11 +28,19 @@ public class UsuarioController extends ActionSupport {
     List<Usuario> listaUsuarios = new ArrayList<>();
     List<TipoDocumentoIdentidad> listaTiposDocumentoIdentidad = new ArrayList<>();
     List<String> listaTiposDocumentoIdentidadString = new ArrayList<>();
+    List<Ciudad> listaCiudades = new ArrayList<>();
+    List<String> listaCiudadesString = new ArrayList<>();
     private UsuarioService usuarioService = new UsuarioService();
     private TipoDocumentoIdentidadService tipoDocumentoIdentidadService = new TipoDocumentoIdentidadService();
+    private CiudadService ciudadService = new CiudadService();
     private Usuario usuario = new Usuario();
     String id;
     private String tipoDocumentoIdentidad;
+    private String ciudad;
+    private RolUsuario rolUsuario;
+    private RolService rolService = new RolService();
+    private RolUsuarioService rolUsuarioService = new RolUsuarioService();
+    private Rol rol = new Rol();
 
     @Override
     public String execute() throws Exception {
@@ -67,7 +81,13 @@ public class UsuarioController extends ActionSupport {
     }
     
     public String save(){
-        usuario.setTipoDocumentoIdentidad(tipoDocumentoIdentidadService.findByDescripcion(tipoDocumentoIdentidad));
+        usuario.setTipoDocumentoIdentidad(tipoDocumentoIdentidadService.findByDescripcion("Cédula de ciudadanía"));
+        usuario.setCiudad(ciudadService.findByDescripcion(ciudad));
+        rol = rolService.findById(4);
+        
+        
+        System.out.println("Ayudaaaaaaaaa");
+        System.out.println(usuario);
         usuarioService.insert(usuario);
         return SUCCESS;
     }
@@ -86,6 +106,12 @@ public class UsuarioController extends ActionSupport {
         listaTiposDocumentoIdentidad = tipoDocumentoIdentidadService.findAll();
         for(TipoDocumentoIdentidad tipoDocumento: listaTiposDocumentoIdentidad){
             listaTiposDocumentoIdentidadString.add(tipoDocumento.getDescripcion());
+            System.out.println("Prueba lista tipo documento identidad: "+tipoDocumento.getDescripcion());
+        }
+        
+        listaCiudades = ciudadService.findAll();
+        for(Ciudad ciud: listaCiudades){
+            listaCiudadesString.add(ciud.getDescripcion());
         }
         return SUCCESS;
     }
@@ -134,7 +160,39 @@ public class UsuarioController extends ActionSupport {
         this.listaUsuarios = listaUsuarios;
     }
 
-    
+    public List<Ciudad> getListaCiudades() {
+        return listaCiudades;
+    }
 
+    public void setListaCiudades(List<Ciudad> listaCiudades) {
+        this.listaCiudades = listaCiudades;
+    }
+
+    public List<String> getListaCiudadesString() {
+        return listaCiudadesString;
+    }
+
+    public void setListaCiudadesString(List<String> listaCiudadesString) {
+        this.listaCiudadesString = listaCiudadesString;
+    }
+
+    public CiudadService getCiudadService() {
+        return ciudadService;
+    }
+
+    public void setCiudadService(CiudadService ciudadService) {
+        this.ciudadService = ciudadService;
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad(String ciudad) {
+        this.ciudad = ciudad;
+    }
+
+    
+    
     
 }

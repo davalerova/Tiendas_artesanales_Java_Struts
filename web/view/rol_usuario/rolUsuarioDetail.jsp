@@ -1,5 +1,5 @@
 <%-- 
-    Document   : departamentoDetail
+    Document   : rolUsuarioDetail
     Created on : 12/04/2021, 10:49:51 PM
     Author     : daval
 --%>
@@ -15,7 +15,7 @@
         <div class="card">
             <!-- Código propio de la página a crear-->
             <div class="card-header" style="font-family: fantasy">
-                Datos del departamento                
+                Datos del rol Usuario                
             </div>
             <div class="row" style="border: black">                
                 <div class="col-sm-2">
@@ -24,21 +24,28 @@
                     </label>  
                 </div>
                 <div class="col-sm-10">
-                    <s:property value="departamento.id"/>
+                    <s:property value="rolUsuario.id"/>
                 </div>
                 <div class="col-sm-2">
                     <label>
-                        Departamento
+                        Nombre usuario
                     </label> 
                 </div>
                 <div class="col-sm-10">
-                    <s:property value="departamento.descripcion"/>
+                    <s:property value="rolUsuario.usuario.nombres"/>
                 </div> 
 
-                
+                <div class="col-sm-2">
+                    <label>
+                        Rol
+                    </label> 
+                </div>
+                <div class="col-sm-10">
+                    <s:property value="rolUsuario.rol.descripcion"/>
+                </div>   
             </div>
             <div>
-                <s:a action="returnDepartamento" cssClass="btn btn-success">
+                <s:a action="returnRolUsuario" cssClass="btn btn-success">
                     Volver
                 </s:a>                
             </div>

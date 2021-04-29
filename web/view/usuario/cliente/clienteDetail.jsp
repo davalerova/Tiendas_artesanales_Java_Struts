@@ -89,6 +89,69 @@
                     <s:property value="usuario.email"/>
                 </div> 
                 
+                <div class="col-sm-2">
+                    <label>
+                        Departamento
+                    </label> 
+                </div>
+                <div class="col-sm-10">
+                    <s:property value="usuario.ciudad.departamento.descripcion"/>
+                </div> 
+                
+                <div class="col-sm-2">
+                    <label>
+                        Ciudad
+                    </label> 
+                </div>
+                <div class="col-sm-10">
+                    <s:property value="usuario.ciudad.descripcion"/>
+                </div> 
+                
+                <div class="col-sm-2">
+                    <label>
+                        Dirección
+                    </label> 
+                </div>
+                <div class="col-sm-10">
+                    <s:property value="usuario.direccion"/>
+                </div> 
+                
+                <div class="col-sm-2">
+                    <label>
+                        Ubicación gps
+                    </label> 
+                </div>
+                <div class="col-sm-10">
+                    <s:property value="usuario.ubicacionGps"/>
+                </div> 
+                
+                <div class="col-sm-2">
+                    <label>
+                        Detalle de la dirección
+                    </label> 
+                </div>
+                <div class="col-sm-10">
+                    <s:property value="usuario.detalleDireccion"/>
+                </div> 
+                
+                <div class="col-sm-2">
+                    <label>
+                        Nombre de usuario
+                    </label> 
+                </div>
+                <div class="col-sm-10">
+                    <s:property value="usuario.nickname"/>
+                </div> 
+                
+                <div class="col-sm-2">
+                    <label>
+                        Contraseña
+                    </label> 
+                </div>
+                <div class="col-sm-10">
+                    <s:property value="usuario.contrasena"/>
+                </div> 
+                
             </div>
             <div>
                 <s:a action="returnUsuarioCliente" cssClass="btn btn-success">

@@ -31,6 +31,18 @@ public class UsuarioService {
         tst.commit();
         return usuarios;
     }
+    
+    public Usuario findByNombres(String desc) {
+        Usuario usuario = new Usuario();
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session ss = sf.openSession();
+        Transaction tst = ss.beginTransaction();
+        Query query = ss.createQuery("from Usuario where nombres =:desc");
+        query.setParameter("desc", desc);
+        usuario = (Usuario) query.uniqueResult();
+        tst.commit();
+        return usuario;
+    }
 
     //findById
     public Usuario findById(int id) {

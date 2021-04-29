@@ -1,5 +1,5 @@
 <%-- 
-    Document   : departamentoAdd
+    Document   : rolUsuarioAdd
     Created on : 12/04/2021, 10:51:05 PM
     Author     : daval
 --%>
@@ -12,10 +12,10 @@
     <s:include value="/templates/header.jsp"/>
     <body> 
         <s:include value="/templates/navMenu.jsp"/>
-        <s:form action="departamentoSave">
+        <s:form action="rolUsuarioSave">
             <br>
             <div>                
-                <s:a action="returnDepartamento" cssClass="btn btn-success" >
+                <s:a action="returnRolUsuario" cssClass="btn btn-success" >
                     Volver
                 </s:a>                
             </div>
@@ -23,7 +23,7 @@
             <div class="card">
                 <!-- Código propio de la página a crear-->
                 <div class="card-header" style="font-family: fantasy">
-                    Datos del departamento                      
+                    Datos del rol Usuario                       
                 </div>
                 <div class="form-group">
                     <label for="id">
@@ -32,19 +32,30 @@
                     <br>
                     <input type="text" 
                            class="form-control" 
-                           id="id"         
-                           disabled
-                           name="departamento.id"
-                           required="true">
+                           id="id"                           
+                           name="rolUsuario.id"
+                           required="true"
+                           disabled>
                     <br>
-                    <label for="descripcion">
-                        Nombre del departamento
-                    </label>
-                    <input type="text" 
-                           class="form-control" 
-                           id="descripcion"                           
-                           name="departamento.descripcion"
-                           required="true">
+                   
+
+                    <s:select 
+                        headerKey="-1" 
+                        list="listaRolesString" 
+                        value="Seleccione una Opcion" 
+                        name="rol"
+			label="Rol usuario">
+                    </s:select>
+                    
+                    <s:select 
+                        headerKey="-1" 
+                        list="listaUsuariosString" 
+                        value="Seleccione una Opcion" 
+                        name="usuario"
+			label="Usuario">
+                    </s:select>
+
+
                 </div>                
                 <s:submit value="Guardar" cssClass="btn btn-success"/>                 
                 <!--Fin código -->

@@ -84,8 +84,9 @@ public class CiudadController extends ActionSupport {
     public String add() {
         ciudad = new Ciudad();
         listaDepartamentos = departamentoService.findAll();
-        for(Departamento departamento: listaDepartamentos){
-            listaDepartamentosString.add(departamento.getDescripcion());
+        for(Departamento depar: listaDepartamentos){
+            listaDepartamentosString.add(depar.getDescripcion());
+            System.out.println(depar.getDescripcion());
         }
         return SUCCESS;
     }

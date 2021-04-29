@@ -215,7 +215,7 @@
         </action>
         <action name="usuarioClienteAdd" 
                 class="controller.UsuarioController" 
-                method="insertarUsuarioCliente">
+                method="add">
             <result name="success">
                 /view/usuario/cliente/clienteAdd.jsp
             </result>            
@@ -245,5 +245,58 @@
                 /view/usuario/cliente/clienteFind.jsp
             </result>            
         </action> 
+        
+         <!-- RolUsuario-->
+        <action name="rolUsuarioInit" 
+                class="controller.RolUsuarioController" 
+                method="execute">
+            <result name="success">
+                /view/rol_usuario/rolUsuarioFind.jsp
+            </result>            
+        </action>
+       
+        
+        <action 
+            name="rolUsuarioFind" 
+            class="controller.RolUsuarioController" 
+            method="findRolUsuarioById">
+            <result name="success">
+                /view/rol_usuario/rolUsuarioDetail.jsp
+            </result>
+            <result name="input">
+                /view/rol_usuario/rolUsuarioFind.jsp
+            </result>            
+        </action>
+        
+        
+        <action name="returnRolUsuario" 
+                class="controller.RolUsuarioController" 
+                method="back">
+            <result name="success">
+                /view/rol_usuario/rolUsuarioFind.jsp
+            </result>            
+        </action> 
+        <action name="rolUsuarioAdd" 
+                class="controller.RolUsuarioController" 
+                method="add">
+            <result name="success">
+                /view/rol_usuario/rolUsuarioAdd.jsp
+            </result>            
+        </action>
+        <action name="rolUsuarioSave" 
+                class="controller.RolUsuarioController" 
+                method="save">
+            <result name="success">
+                /view/rol_usuario/rolUsuarioDetail.jsp 
+            </result>          
+        </action>
+        <action name="devolverTodos" 
+                class="controller.RolUsuarioController" 
+                method="devolverTodos">
+            <result name="success">
+                /view/rol_usuario/rolUsuarioDetail.jsp 
+            </result>            
+        </action>  
+        
     </package>
 </struts> 
