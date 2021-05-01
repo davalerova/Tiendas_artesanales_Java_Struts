@@ -223,7 +223,7 @@
         <action 
             name="usuarioClienteFind" 
             class="controller.UsuarioController" 
-            method="findUsuarioById">
+            method="findUsuarioByNumeroDocumentoIdentidad">
             <result name="success">
                 /view/usuario/cliente/clienteDetail.jsp
             </result>
@@ -297,6 +297,61 @@
                 /view/rol_usuario/rolUsuarioDetail.jsp 
             </result>            
         </action>  
+        
+        
+        
+         <!-- Tienda-->
+        <action name="tiendaInit" 
+                class="controller.TiendaController" 
+                method="execute">
+            <result name="success">
+                /view/tienda/tiendaFind.jsp
+            </result>            
+        </action>
+       
+        
+        <action 
+            name="tiendaFind" 
+            class="controller.TiendaController" 
+            method="findTiendaById">
+            <result name="success">
+                /view/tienda/tiendaDetail.jsp
+            </result>
+            <result name="input">
+                /view/tienda/tiendaFind.jsp
+            </result>            
+        </action>
+        
+        
+        <action name="returnTienda" 
+                class="controller.TiendaController" 
+                method="back">
+            <result name="success">
+                /view/tienda/tiendaFind.jsp
+            </result>            
+        </action> 
+        <action name="tiendaAdd" 
+                class="controller.TiendaController" 
+                method="add">
+            <result name="success">
+                /view/tienda/tiendaAdd.jsp
+            </result>            
+        </action>
+        <action name="tiendaSave" 
+                class="controller.TiendaController" 
+                method="save">
+            <result name="success">
+                /view/tienda/tiendaDetail.jsp 
+            </result>          
+        </action>
+        <action name="devolverTodos" 
+                class="controller.TiendaController" 
+                method="devolverTodos">
+            <result name="success">
+                /view/tienda/tiendaDetail.jsp 
+            </result>            
+        </action>  
+        
         
     </package>
 </struts> 

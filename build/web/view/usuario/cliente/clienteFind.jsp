@@ -26,18 +26,18 @@
                     Datos del cliente               
                 </div>
                 <div class="form-group">
-                    <label for="id">
-                        Id
+                    <label for="numDocIdent">
+                        Número documento identidad
                     </label>
                     <br>
                     <input type="text" 
                            class="form-control" 
-                           id="id"                           
-                           name="id"
+                           id="numDocIdent"                           
+                           name="numDocIdent"
                            required="true">
                 </div>                
                 <s:fielderror cssClass="alert alert-danger" 
-                              fieldName="id"/>                
+                              fieldName="numeroDocumentoIdentidad"/>                
                 <s:submit value="Buscar" 
                           cssClass="btn btn-success"/>                    
                 <!--Fin código -->

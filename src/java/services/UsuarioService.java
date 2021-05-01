@@ -54,6 +54,20 @@ public class UsuarioService {
         tst.commit();
         return usuario;
     }
+    
+    public Usuario findByNumeroDocumentoIdentidad(String numDocIdent) {
+        Usuario usr = new Usuario();
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session ss = sf.openSession();
+        Transaction tst = ss.beginTransaction();
+        Query query = ss.createQuery("FROM Usuario U WHERE U.numeroDocumentoIdentidad =:numDocIdent");
+        query.setParameter("numDocIdent", numDocIdent);
+        usr = (Usuario) query.uniqueResult();
+        tst.commit();
+        ss.close();
+        return usr;
+    }
+    
 
     public Usuario findByNickname(String nickname) {
         Usuario usr = new Usuario();

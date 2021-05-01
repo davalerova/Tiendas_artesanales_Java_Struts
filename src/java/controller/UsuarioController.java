@@ -34,7 +34,8 @@ public class UsuarioController extends ActionSupport {
     private TipoDocumentoIdentidadService tipoDocumentoIdentidadService = new TipoDocumentoIdentidadService();
     private CiudadService ciudadService = new CiudadService();
     private Usuario usuario = new Usuario();
-    String id;
+    private String id;
+    private String numDocIdent;
     private String tipoDocumentoIdentidad;
     private String ciudad;
     private RolUsuario rolUsuario;
@@ -53,6 +54,17 @@ public class UsuarioController extends ActionSupport {
         this.usuario = this.usuarioService.findById(Integer.parseInt(this.id));
         if (this.usuario == null || String.valueOf(this.usuario.getId()) == null) {
             addFieldError("id", "El usuario con número de id " + this.id + " no se encuentra registrada en el sistema");
+            return INPUT;
+        } else {
+            return SUCCESS;
+
+        }
+    }
+    
+    public String findUsuarioByNumeroDocumentoIdentidad() {
+        this.usuario = this.usuarioService.findByNumeroDocumentoIdentidad(this.numDocIdent);
+        if (this.usuario == null || this.usuario.getNumeroDocumentoIdentidad() == null) {
+            addFieldError("numDocIdent", "El usuario con número de número de documemnto de identidad " + this.numDocIdent + " no se encuentra registrado en el sistema");
             return INPUT;
         } else {
             return SUCCESS;
@@ -119,21 +131,13 @@ public class UsuarioController extends ActionSupport {
     public String insertarUsuarioCliente(){
         return SUCCESS;
     }
-    
-    public Usuario getUsuario() {
-        return usuario;
+
+    public List<Usuario> getListaUsuarios() {
+        return listaUsuarios;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+    public void setListaUsuarios(List<Usuario> listaUsuarios) {
+        this.listaUsuarios = listaUsuarios;
     }
 
     public List<TipoDocumentoIdentidad> getListaTiposDocumentoIdentidad() {
@@ -152,14 +156,6 @@ public class UsuarioController extends ActionSupport {
         this.listaTiposDocumentoIdentidadString = listaTiposDocumentoIdentidadString;
     }
 
-    public List<Usuario> getListaUsuarios() {
-        return listaUsuarios;
-    }
-
-    public void setListaUsuarios(List<Usuario> listaUsuarios) {
-        this.listaUsuarios = listaUsuarios;
-    }
-
     public List<Ciudad> getListaCiudades() {
         return listaCiudades;
     }
@@ -176,12 +172,60 @@ public class UsuarioController extends ActionSupport {
         this.listaCiudadesString = listaCiudadesString;
     }
 
+    public UsuarioService getUsuarioService() {
+        return usuarioService;
+    }
+
+    public void setUsuarioService(UsuarioService usuarioService) {
+        this.usuarioService = usuarioService;
+    }
+
+    public TipoDocumentoIdentidadService getTipoDocumentoIdentidadService() {
+        return tipoDocumentoIdentidadService;
+    }
+
+    public void setTipoDocumentoIdentidadService(TipoDocumentoIdentidadService tipoDocumentoIdentidadService) {
+        this.tipoDocumentoIdentidadService = tipoDocumentoIdentidadService;
+    }
+
     public CiudadService getCiudadService() {
         return ciudadService;
     }
 
     public void setCiudadService(CiudadService ciudadService) {
         this.ciudadService = ciudadService;
+    }
+
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getNumDocIdent() {
+        return numDocIdent;
+    }
+
+    public void setNumDocIdent(String numeroDocuementoIdentidad) {
+        this.numDocIdent = numeroDocuementoIdentidad;
+    }
+
+    public String getTipoDocumentoIdentidad() {
+        return tipoDocumentoIdentidad;
+    }
+
+    public void setTipoDocumentoIdentidad(String tipoDocumentoIdentidad) {
+        this.tipoDocumentoIdentidad = tipoDocumentoIdentidad;
     }
 
     public String getCiudad() {
@@ -191,6 +235,40 @@ public class UsuarioController extends ActionSupport {
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
     }
+
+    public RolUsuario getRolUsuario() {
+        return rolUsuario;
+    }
+
+    public void setRolUsuario(RolUsuario rolUsuario) {
+        this.rolUsuario = rolUsuario;
+    }
+
+    public RolService getRolService() {
+        return rolService;
+    }
+
+    public void setRolService(RolService rolService) {
+        this.rolService = rolService;
+    }
+
+    public RolUsuarioService getRolUsuarioService() {
+        return rolUsuarioService;
+    }
+
+    public void setRolUsuarioService(RolUsuarioService rolUsuarioService) {
+        this.rolUsuarioService = rolUsuarioService;
+    }
+
+    public Rol getRol() {
+        return rol;
+    }
+
+    public void setRol(Rol rol) {
+        this.rol = rol;
+    }
+    
+    
 
     
     

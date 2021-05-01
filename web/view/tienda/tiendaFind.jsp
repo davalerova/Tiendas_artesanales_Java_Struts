@@ -1,5 +1,5 @@
 <%-- 
-    Document   : departamentoFind
+    Document   : tiendaFind
     Created on : 12/04/2021, 10:47:53 PM
     Author     : daval
 --%>
@@ -10,10 +10,10 @@
     <s:include value="/templates/header.jsp"/>
     <body>
         <s:include value="/templates/navMenu.jsp"/>        
-        <s:form action="usuarioClienteFind">
+        <s:form action="tiendaFind">
             <br>
             <div>
-                <s:a action="usuarioClienteAdd" 
+                <s:a action="tiendaAdd" 
                      cssClass="btn btn-success">
                     Agregar
                 </s:a> 
@@ -23,21 +23,21 @@
                 <!-- Código propio de la página a crear-->
                 <div class="card-header" 
                      style="font-family: fantasy">
-                    Datos del cliente               
+                    Datos de la tienda                
                 </div>
                 <div class="form-group">
-                    <label for="numDocIdent">
-                        Número documento identidad
+                    <label for="id">
+                        Id
                     </label>
                     <br>
-                    <input type="text" 
+                    <input type="number" 
                            class="form-control" 
-                           id="numDocIdent"                           
-                           name="numDocIdent"
+                           id="id"                           
+                           name="id"
                            required="true">
                 </div>                
                 <s:fielderror cssClass="alert alert-danger" 
-                              fieldName="numeroDocumentoIdentidad"/>                
+                              fieldName="id"/>                
                 <s:submit value="Buscar" 
                           cssClass="btn btn-success"/>                    
                 <!--Fin código -->
