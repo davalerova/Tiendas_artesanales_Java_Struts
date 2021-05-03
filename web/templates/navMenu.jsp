@@ -31,6 +31,8 @@
                         <div class="dropdown-divider"></div> 
                         <a class="dropdown-item" href="/TiendasArtesanales/tiendaInit">Tiendas</a>
                         <div class="dropdown-divider"></div> 
+                        <a class="dropdown-item" href="/TiendasArtesanales/productoInit">Productos</a>
+                        <div class="dropdown-divider"></div> 
                         <a class="dropdown-item" href="#">Otros</a>
                     </div>
                 </li>

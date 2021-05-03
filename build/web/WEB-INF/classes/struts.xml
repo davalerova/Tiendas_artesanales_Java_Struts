@@ -16,9 +16,9 @@
         </action>
         <action name="login" 
                 class="controller.UsuarioController" 
-                method="execute">
-            <result name="success">
-                /view/ciudad/ciudadDetail.jsp
+                method="validarCredenciales">
+            <result name="Cliente">
+                /view/ciudad/clienteDetail.jsp
             </result>            
         </action>
         <action 
@@ -220,6 +220,13 @@
                 /view/usuario/cliente/clienteAdd.jsp
             </result>            
         </action>
+        <action name="validarCredenciales" 
+                class="controller.UsuarioController" 
+                method="validarCredenciales">
+            <result name="success">
+                /view/usuario/cliente/clienteAdd.jsp
+            </result>            
+        </action>
         <action 
             name="usuarioClienteFind" 
             class="controller.UsuarioController" 
@@ -352,6 +359,56 @@
             </result>            
         </action>  
         
+         <!-- Producto-->
+        <action name="productoInit" 
+                class="controller.ProductoController" 
+                method="execute">
+            <result name="success">
+                /view/producto/productoFind.jsp
+            </result>            
+        </action>
+       
         
+        <action 
+            name="productoFind" 
+            class="controller.ProductoController" 
+            method="findProductoById">
+            <result name="success">
+                /view/producto/productoDetail.jsp
+            </result>
+            <result name="input">
+                /view/producto/productoFind.jsp
+            </result>            
+        </action>
+        
+        
+        <action name="returnProducto" 
+                class="controller.ProductoController" 
+                method="back">
+            <result name="success">
+                /view/producto/productoFind.jsp
+            </result>            
+        </action> 
+        <action name="productoAdd" 
+                class="controller.ProductoController" 
+                method="add">
+            <result name="success">
+                /view/producto/productoAdd.jsp
+            </result>            
+        </action>
+        <action name="productoSave" 
+                class="controller.ProductoController" 
+                method="save">
+            <result name="success">
+                /view/producto/productoDetail.jsp 
+            </result>          
+        </action>
+        <action name="devolverTodos" 
+                class="controller.ProductoController" 
+                method="devolverTodos">
+            <result name="success">
+                /view/producto/productoDetail.jsp 
+            </result>            
+        </action>  
     </package>
 </struts> 

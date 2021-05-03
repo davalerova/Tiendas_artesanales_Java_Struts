@@ -134,7 +134,7 @@
     <body>
         <s:include value="/templates/navMenu.jsp"/>     
         
-        <s:form action="ciudadFind">
+        <s:form action="validarUsuario">
             <br>
             <div>
                 <s:a action="ciudadAdd" 

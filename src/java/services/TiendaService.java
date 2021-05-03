@@ -31,6 +31,18 @@ public class TiendaService {
         tst.commit();
         return tiendas;
     }
+    
+    public Tienda findByDescripcion(String desc) {
+        Tienda departamento = new Tienda();
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session ss = sf.openSession();
+        Transaction tst = ss.beginTransaction();
+        Query query = ss.createQuery("from Tienda where nombre =:desc");
+        query.setParameter("desc", desc);
+        departamento = (Tienda) query.uniqueResult();
+        tst.commit();
+        return departamento;
+    }
 
     //findById
     public Tienda findById(int id) {
