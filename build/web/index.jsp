@@ -131,38 +131,40 @@
         }
     </style>
     <s:include value="/templates/header.jsp"/>
-    <body>
-        <s:include value="/templates/navMenu.jsp"/>     
+    <body> 
         
-        <s:form action="validarUsuario">
+        <s:form action="validarCredenciales">
+                         
             <br>
-            <div>
-                <s:a action="ciudadAdd" 
-                     cssClass="btn btn-success">
-                    Agregar
-                </s:a> 
-            </div>                
-            <br>
-            <div class="card">
+            <div class="login">
                 <!-- Código propio de la página a crear-->
                 <div class="card-header" 
                      style="font-family: fantasy">
-                    Datos de la ciudad                
+                                 
                 </div>
                 <div class="form-group">
-                    <label for="id">
-                        Id
+                    <label for="nickname">
+                        Usuario
                     </label>
                     <br>
-                    <input type="number" 
+                    <input type="text" 
                            class="form-control" 
-                           id="id"                           
-                           name="id"
+                           id="nickname"                           
+                           name="nickname"
                            required="true">
-                </div>                
-                <s:fielderror cssClass="alert alert-danger" 
-                              fieldName="id"/>                
-                <s:submit value="Buscar" 
+                </div>        
+                <div class="form-group">
+                    <label for="contrasena">
+                        Contraseña
+                    </label>
+                    <br>
+                    <input type="password" 
+                           class="form-control" 
+                           id="contrasena"                           
+                           name="contrasena"
+                           required="true">
+                </div>             
+                <s:submit value="Ingresar" 
                           cssClass="btn btn-success"/>                    
                 <!--Fin código -->
             </div>

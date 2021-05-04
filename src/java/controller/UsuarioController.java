@@ -19,6 +19,7 @@ import services.RolUsuarioService;
 import services.UsuarioService;
 import services.TipoDocumentoIdentidadService;
 
+
 /**
  *
  * @author daval
@@ -42,6 +43,8 @@ public class UsuarioController extends ActionSupport {
     private RolService rolService = new RolService();
     private RolUsuarioService rolUsuarioService = new RolUsuarioService();
     private Rol rol = new Rol();
+    private String nickname;
+    private String contrasena;
 
     @Override
     public String execute() throws Exception {
@@ -126,6 +129,22 @@ public class UsuarioController extends ActionSupport {
             listaCiudadesString.add(ciud.getDescripcion());
         }
         return SUCCESS;
+    }
+    
+    public String validarCredenciales(){
+        this.usuario = this.usuarioService.findByNickname(nickname);
+        if (this.usuario == null) {
+            
+            
+            return INPUT;
+        } else if (!this.usuario.getContrasena().equals(contrasena)){
+            
+            addFieldError("nickname", "Usuario o contraseña incorrectos");
+            return INPUT;
+        }else{
+            
+            return SUCCESS;
+        }
     }
     
     public String insertarUsuarioCliente(){
@@ -266,6 +285,22 @@ public class UsuarioController extends ActionSupport {
 
     public void setRol(Rol rol) {
         this.rol = rol;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
     }
     
     

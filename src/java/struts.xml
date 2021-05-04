@@ -225,7 +225,10 @@
                 method="validarCredenciales">
             <result name="success">
                 /view/usuario/cliente/clienteAdd.jsp
-            </result>            
+            </result>   
+            <result name="input">
+                /index.jsp
+            </result>          
         </action>
         <action 
             name="usuarioClienteFind" 
