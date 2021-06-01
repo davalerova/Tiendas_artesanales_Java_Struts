@@ -12,7 +12,10 @@
                 method="execute">
             <result name="success">
                 /view/ciudad/ciudadFind.jsp
-            </result>            
+            </result>     
+            <result name="error">
+                /index.jsp
+            </result>          
         </action>
         <action name="login" 
                 class="controller.UsuarioController" 
@@ -62,13 +65,23 @@
                 method="execute">
             <result name="success">
                 /view/departamento/departamentoFind.jsp
-            </result>            
+            </result>       
+            <result name="error">
+                /index.jsp
+            </result>                 
         </action>
         <action name="login" 
                 class="controller.UsuarioController" 
                 method="execute">
             <result name="success">
                 /view/departamento/departamentoDetail.jsp
+            </result>            
+        </action>
+        <action name="logout" 
+                class="controller.UsuarioController" 
+                method="logout">
+            <result name="success">
+                /index.jsp
             </result>            
         </action>
         <action 
@@ -129,7 +142,10 @@
                 method="execute">
             <result name="success">
                 /view/tipo_documento_identidad/tipoDocumentoIdentidadFind.jsp
-            </result>            
+            </result>      
+            <result name="error">
+                /index.jsp
+            </result>         
         </action>
         <action name="tipoDocumentoIdentidadAdd" 
                 class="controller.TipoDocumentoIdentidadController" 
@@ -164,13 +180,16 @@
             </result>            
         </action> 
         
-         <!-- Rol-->
+        <!-- Rol-->
         <action name="rolInit" 
                 class="controller.RolController" 
                 method="execute">
             <result name="success">
                 /view/rol/rolFind.jsp
-            </result>            
+            </result>      
+            <result name="error">
+                /index.jsp
+            </result>         
         </action>
         <action name="rolAdd" 
                 class="controller.RolController" 
@@ -211,7 +230,10 @@
                 method="execute">
             <result name="success">
                 /view/usuario/cliente/clienteFind.jsp
-            </result>            
+            </result>         
+            <result name="error">
+                /index.jsp
+            </result>      
         </action>
         <action name="usuarioClienteAdd" 
                 class="controller.UsuarioController" 
@@ -256,13 +278,16 @@
             </result>            
         </action> 
         
-         <!-- RolUsuario-->
+        <!-- RolUsuario-->
         <action name="rolUsuarioInit" 
                 class="controller.RolUsuarioController" 
                 method="execute">
             <result name="success">
                 /view/rol_usuario/rolUsuarioFind.jsp
             </result>            
+            <result name="error">
+                /index.jsp
+            </result>   
         </action>
        
         
@@ -310,13 +335,16 @@
         
         
         
-         <!-- Tienda-->
+        <!-- Tienda-->
         <action name="tiendaInit" 
                 class="controller.TiendaController" 
                 method="execute">
             <result name="success">
                 /view/tienda/tiendaFind.jsp
-            </result>            
+            </result>           
+            <result name="error">
+                /index.jsp
+            </result>    
         </action>
        
         
@@ -362,13 +390,16 @@
             </result>            
         </action>  
         
-         <!-- Producto-->
+        <!-- Producto-->
         <action name="productoInit" 
                 class="controller.ProductoController" 
                 method="execute">
             <result name="success">
                 /view/producto/productoFind.jsp
-            </result>            
+            </result>         
+            <result name="error">
+                /index.jsp
+            </result>      
         </action>
        
         

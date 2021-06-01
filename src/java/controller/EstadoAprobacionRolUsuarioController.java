@@ -5,9 +5,15 @@
  */
 package controller;
 
+import static com.opensymphony.xwork2.Action.ERROR;
+import static com.opensymphony.xwork2.Action.SUCCESS;
+import com.opensymphony.xwork2.ActionSupport;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import model.EstadoAprobacionRolUsuario;
+import org.apache.struts2.ServletActionContext;
 import services.EstadoAprobacionRolUsuarioService;
 
 /**
@@ -16,12 +22,33 @@ import services.EstadoAprobacionRolUsuarioService;
  */
 
 
-public class EstadoAprobacionRolUsuarioController {
+public class EstadoAprobacionRolUsuarioController extends ActionSupport{
     
     List<EstadoAprobacionRolUsuario> listaEstadoAprobacionRolUsuarios = new ArrayList<>();
     EstadoAprobacionRolUsuarioService estadoAprobacionRolUsuarioService = new EstadoAprobacionRolUsuarioService();
     EstadoAprobacionRolUsuario estadoAprobacionRolUsuario = new EstadoAprobacionRolUsuario();
     int id;
+    
+    @Override
+    public String execute() throws Exception {
+        if (this.validarSesion()) {
+            return SUCCESS;
+        } else {
+            return ERROR;
+        }
+
+    }
+
+    public boolean validarSesion() {
+        HttpServletRequest request = ServletActionContext.getRequest();
+        HttpSession session = request.getSession();
+        String s = (String) session.getAttribute("login");
+        if (s != null && !s.equals("")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     
     public void devolverTodos() {
         listaEstadoAprobacionRolUsuarios.clear();

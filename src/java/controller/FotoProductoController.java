@@ -5,9 +5,15 @@
  */
 package controller;
 
+import static com.opensymphony.xwork2.Action.ERROR;
+import static com.opensymphony.xwork2.Action.SUCCESS;
+import com.opensymphony.xwork2.ActionSupport;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import model.FotoProducto;
+import org.apache.struts2.ServletActionContext;
 import services.FotoProductoService;
 
 /**
@@ -16,12 +22,33 @@ import services.FotoProductoService;
  */
 
 
-public class FotoProductoController {
+public class FotoProductoController extends ActionSupport{
     
     List<FotoProducto> listaFotosProductos = new ArrayList<>();
     FotoProductoService fotoProductoService = new FotoProductoService();
     FotoProducto fotoProducto = new FotoProducto();
     int id;
+    
+    @Override
+    public String execute() throws Exception {
+        if (this.validarSesion()) {
+            return SUCCESS;
+        } else {
+            return ERROR;
+        }
+
+    }
+
+    public boolean validarSesion() {
+        HttpServletRequest request = ServletActionContext.getRequest();
+        HttpSession session = request.getSession();
+        String s = (String) session.getAttribute("login");
+        if (s != null && !s.equals("")) {
+            return true;
+        } else {
+            return false;
+        }
+    }
     
     public void devolverTodos() {
         listaFotosProductos.clear();

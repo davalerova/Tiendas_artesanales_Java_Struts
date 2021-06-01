@@ -31,6 +31,18 @@ public class RolUsuarioService {
         tst.commit();
         return rolesUsuario;
     }
+    
+    public List<RolUsuario> findByIdUsuario(int id_usuario) {
+        List<RolUsuario> rolesUsuario = new ArrayList<>();
+        SessionFactory sf = HibernateUtil.getSessionFactory();
+        Session ss = sf.openSession();
+        Transaction tst = ss.beginTransaction();
+        Query query = ss.createQuery("from RolUsuario where usuario.id =:id_usuario");
+        query.setParameter("id_usuario", id_usuario);
+        rolesUsuario = query.list();
+        tst.commit();
+        return rolesUsuario;
+    }
 
     //findById
     public RolUsuario findById(int id) {

@@ -5,12 +5,17 @@
  */
 package controller;
 
+import static com.opensymphony.xwork2.Action.ERROR;
+import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import model.RolUsuario;
 import model.Rol;
 import model.Usuario;
+import org.apache.struts2.ServletActionContext;
 import services.RolUsuarioService;
 import services.RolService;
 import services.UsuarioService;
@@ -36,9 +41,23 @@ public class RolUsuarioController extends ActionSupport {
 
     @Override
     public String execute() throws Exception {
-        System.out.println("Pruebaaaaa"+this.id);
-        System.out.println(this.id);
-        return SUCCESS;
+        if (this.validarSesion()) {
+            return SUCCESS;
+        } else {
+            return ERROR;
+        }
+
+    }
+
+    public boolean validarSesion() {
+        HttpServletRequest request = ServletActionContext.getRequest();
+        HttpSession session = request.getSession();
+        String s = (String) session.getAttribute("login");
+        if (s != null && !s.equals("")) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public String findRolUsuarioById() {
@@ -61,6 +80,8 @@ public class RolUsuarioController extends ActionSupport {
         rolUsuario = new RolUsuario();
         rolUsuario = rolUsuarioService.findById(Integer.parseInt(id));
     }
+    
+    
 
     public String insertar() {
         rolUsuarioService.insert(rolUsuario);

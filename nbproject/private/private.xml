@@ -3,28 +3,40 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/web/view/usuario/cliente/clienteAdd.jsp</file>
             <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/web/index.jsp</file>
             <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/services/RolUsuarioService.java</file>
-            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/controller/DepartamentoController.java</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/controller/FotoProductoController.java</file>
             <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/services/DepartamentoService.java</file>
             <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/controller/CiudadController.java</file>
             <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/web/view/ciudad/ciudadAdd.jsp</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/controller/RolController.java</file>
             <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/model/Usuario.java</file>
-            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/model/Usuario.hbm.xml</file>
-            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/model/RolUsuario.hbm.xml</file>
-            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/model/RolUsuario.java</file>
-            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/services/UsuarioService.java</file>
-            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/web/view/tienda/tiendaDetail.jsp</file>
-            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/web/view/tienda/tiendaAdd.jsp</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/model/Rol.java</file>
             <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/web/view/usuario/cliente/clienteDetail.jsp</file>
-            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/struts.xml</file>
-            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/controller/RolUsuarioController.java</file>
-            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/services/TipoDocumentoIdentidadService.java</file>
             <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/controller/UsuarioController.java</file>
             <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/web/view/tipo_documento_identidad/tipoDocumentoIdentidadAdd.jsp</file>
             <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/services/CiudadService.java</file>
-            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/services/RolService.java</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/web/view/usuario/cliente/clienteAdd.jsp</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/controller/DepartamentoController.java</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/controller/EstadoAprobacionRolUsuarioController.java</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/model/Usuario.hbm.xml</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/model/RolUsuario.hbm.xml</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/services/TiendaService.java</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/controller/TiendaController.java</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/model/RolUsuario.java</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/services/UsuarioService.java</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/controller/ProductoController.java</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/web/view/tienda/tiendaDetail.jsp</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/web/view/tienda/tiendaAdd.jsp</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/web/templates/navMenu.jsp</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/struts.xml</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/web/view/usuario/autenticacionUsuario.jsp</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/pkg/wser/Operaciones.java</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/controller/RolUsuarioController.java</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/controller/EstadoAprobacionTiendaController.java</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/services/TipoDocumentoIdentidadService.java</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/model/Tienda.java</file>
+            <file>file:/C:/Users/daval/Documents/NetBeansProjects/TiendasArtesanales/src/java/controller/TipoDocumentoIdentidadController.java</file>
         </group>
     </open-files>
 </project-private>

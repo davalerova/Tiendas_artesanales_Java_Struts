@@ -33,7 +33,7 @@
                         <div class="dropdown-divider"></div> 
                         <a class="dropdown-item" href="/TiendasArtesanales/productoInit">Productos</a>
                         <div class="dropdown-divider"></div> 
-                        <a class="dropdown-item" href="#">Otros</a>
+                        <a class="dropdown-item" href="/TiendasArtesanales/logout">Cerrar sesión</a>
                     </div>
                 </li>
             </ul>

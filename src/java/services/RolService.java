@@ -53,6 +53,10 @@ public class RolService {
         tst.commit();
         return rol;
     }
+    
+   
+    
+    
     //insert
     public void insert(Rol rol) {
         SessionFactory sf = HibernateUtil.getSessionFactory();

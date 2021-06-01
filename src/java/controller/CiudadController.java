@@ -8,8 +8,11 @@ package controller;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.ArrayList;
 import java.util.List;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import model.Ciudad;
 import model.Departamento;
+import org.apache.struts2.ServletActionContext;
 import services.CiudadService;
 import services.DepartamentoService;
 
@@ -30,9 +33,23 @@ public class CiudadController extends ActionSupport {
 
     @Override
     public String execute() throws Exception {
-        System.out.println("Pruebaaaaa"+this.id);
-        System.out.println(this.id);
-        return SUCCESS;
+        if (this.validarSesion()) {
+            return SUCCESS;
+        } else {
+            return ERROR;
+        }
+
+    }
+
+    public boolean validarSesion() {
+        HttpServletRequest request = ServletActionContext.getRequest();
+        HttpSession session = request.getSession();
+        String s = (String) session.getAttribute("login");
+        if (s != null && !s.equals("")) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public String findCiudadById() {
@@ -65,8 +82,8 @@ public class CiudadController extends ActionSupport {
         ciudadService.update(ciudad);
         return SUCCESS;
     }
-    
-    public String save(){
+
+    public String save() {
         ciudad.setDepartamento(departamentoService.findByDescripcion(departamento));
         ciudadService.insert(ciudad);
         return SUCCESS;
@@ -84,7 +101,7 @@ public class CiudadController extends ActionSupport {
     public String add() {
         ciudad = new Ciudad();
         listaDepartamentos = departamentoService.findAll();
-        for(Departamento depar: listaDepartamentos){
+        for (Departamento depar : listaDepartamentos) {
             listaDepartamentosString.add(depar.getDescripcion());
             System.out.println(depar.getDescripcion());
         }
@@ -131,5 +148,4 @@ public class CiudadController extends ActionSupport {
         this.listaDepartamentosString = listaDepartamentosString;
     }
 
-    
 }

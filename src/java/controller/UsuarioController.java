@@ -5,32 +5,40 @@
  */
 package controller;
 
+import static com.opensymphony.xwork2.Action.ERROR;
+import static com.opensymphony.xwork2.Action.SUCCESS;
 import com.opensymphony.xwork2.ActionSupport;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import model.Ciudad;
 import model.Rol;
 import model.RolUsuario;
 import model.Usuario;
 import model.TipoDocumentoIdentidad;
+import org.apache.struts2.ServletActionContext;
+import org.apache.struts2.dispatcher.SessionMap;
+import org.apache.struts2.interceptor.SessionAware;
 import services.CiudadService;
 import services.RolService;
 import services.RolUsuarioService;
 import services.UsuarioService;
 import services.TipoDocumentoIdentidadService;
 
-
 /**
  *
  * @author daval
  */
-public class UsuarioController extends ActionSupport {
+public class UsuarioController extends ActionSupport implements SessionAware {
 
-    List<Usuario> listaUsuarios = new ArrayList<>();
-    List<TipoDocumentoIdentidad> listaTiposDocumentoIdentidad = new ArrayList<>();
-    List<String> listaTiposDocumentoIdentidadString = new ArrayList<>();
-    List<Ciudad> listaCiudades = new ArrayList<>();
-    List<String> listaCiudadesString = new ArrayList<>();
+    private List<Usuario> listaUsuarios = new ArrayList<>();
+    private List<TipoDocumentoIdentidad> listaTiposDocumentoIdentidad = new ArrayList<>();
+    private List<String> listaTiposDocumentoIdentidadString = new ArrayList<>();
+    private List<Ciudad> listaCiudades = new ArrayList<>();
+    private List<String> listaCiudadesString = new ArrayList<>();
+    private List<RolUsuario> listaRolesUsuario = new ArrayList<>();
     private UsuarioService usuarioService = new UsuarioService();
     private TipoDocumentoIdentidadService tipoDocumentoIdentidadService = new TipoDocumentoIdentidadService();
     private CiudadService ciudadService = new CiudadService();
@@ -45,12 +53,27 @@ public class UsuarioController extends ActionSupport {
     private Rol rol = new Rol();
     private String nickname;
     private String contrasena;
+    private Map<String, String> sessionMap;
 
     @Override
     public String execute() throws Exception {
-        System.out.println("Pruebaaaaa"+this.id);
-        System.out.println(this.id);
-        return SUCCESS;
+        if (this.validarSesion()) {
+            return SUCCESS;
+        } else {
+            return ERROR;
+        }
+
+    }
+
+    public boolean validarSesion() {
+        HttpServletRequest request = ServletActionContext.getRequest();
+        HttpSession session = request.getSession();
+        String s = (String) session.getAttribute("login");
+        if (s != null && !s.equals("")) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public String findUsuarioById() {
@@ -63,7 +86,7 @@ public class UsuarioController extends ActionSupport {
 
         }
     }
-    
+
     public String findUsuarioByNumeroDocumentoIdentidad() {
         this.usuario = this.usuarioService.findByNumeroDocumentoIdentidad(this.numDocIdent);
         if (this.usuario == null || this.usuario.getNumeroDocumentoIdentidad() == null) {
@@ -94,13 +117,12 @@ public class UsuarioController extends ActionSupport {
         usuarioService.update(usuario);
         return SUCCESS;
     }
-    
-    public String save(){
+
+    public String save() {
         usuario.setTipoDocumentoIdentidad(tipoDocumentoIdentidadService.findByDescripcion("Cédula de ciudadanía"));
         usuario.setCiudad(ciudadService.findByDescripcion(ciudad));
         rol = rolService.findById(4);
-        
-        
+
         System.out.println("Ayudaaaaaaaaa");
         System.out.println(usuario);
         usuarioService.insert(usuario);
@@ -119,35 +141,41 @@ public class UsuarioController extends ActionSupport {
     public String add() {
         usuario = new Usuario();
         listaTiposDocumentoIdentidad = tipoDocumentoIdentidadService.findAll();
-        for(TipoDocumentoIdentidad tipoDocumento: listaTiposDocumentoIdentidad){
+        for (TipoDocumentoIdentidad tipoDocumento : listaTiposDocumentoIdentidad) {
             listaTiposDocumentoIdentidadString.add(tipoDocumento.getDescripcion());
-            System.out.println("Prueba lista tipo documento identidad: "+tipoDocumento.getDescripcion());
+            System.out.println("Prueba lista tipo documento identidad: " + tipoDocumento.getDescripcion());
         }
-        
+
         listaCiudades = ciudadService.findAll();
-        for(Ciudad ciud: listaCiudades){
+        for (Ciudad ciud : listaCiudades) {
             listaCiudadesString.add(ciud.getDescripcion());
         }
         return SUCCESS;
     }
-    
-    public String validarCredenciales(){
+
+    public String validarCredenciales() {
+
         this.usuario = this.usuarioService.findByNickname(nickname);
         if (this.usuario == null) {
-            
-            
+
             return INPUT;
-        } else if (!this.usuario.getContrasena().equals(contrasena)){
-            
+        } else if (!this.usuario.getContrasena().equals(contrasena)) {
+
             addFieldError("nickname", "Usuario o contraseña incorrectos");
             return INPUT;
-        }else{
-            
+        } else {
+            this.listaRolesUsuario = rolUsuarioService.findByIdUsuario(this.usuario.getId());
+            this.sessionMap.put("login", "true");
             return SUCCESS;
         }
     }
     
-    public String insertarUsuarioCliente(){
+    public String logout() {
+        this.sessionMap.clear();
+        return "success";
+    }
+
+    public String insertarUsuarioCliente() {
         return SUCCESS;
     }
 
@@ -302,10 +330,17 @@ public class UsuarioController extends ActionSupport {
     public void setContrasena(String contrasena) {
         this.contrasena = contrasena;
     }
-    
-    
 
-    
-    
-    
+    public List<RolUsuario> getListaRolesUsuario() {
+        return listaRolesUsuario;
+    }
+
+    public void setListaRolesUsuario(List<RolUsuario> listaRolesUsuario) {
+        this.listaRolesUsuario = listaRolesUsuario;
+    }
+
+    public void setSession(Map map) {
+        this.sessionMap = (SessionMap) map;
+    }
+
 }
